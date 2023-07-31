@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.DayOfWeek;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -30,13 +31,13 @@ public class WebService {
     }
 
     public List<ResponseDTO> getWeeklyCrawling() { // 해당 날짜가 속한 일주일(월~일)의 데이터 전부
-        LocalDateTime startDate = currentDate.minusDays(currentDate.getDayOfWeek().getValue() - 1);
+        LocalDateTime startDate = currentDate.with(DayOfWeek.MONDAY).withHour(0).withMinute(0).withSecond(0);
         LocalDateTime endDate = startDate.plusDays(7);
         return getCrawlingData(startDate, endDate);
     }
 
     public List<ResponseDTO> getMonthlyCrawling() { // 해당 날짜가 속한 달의 데이터 전부
-        LocalDateTime startDate = currentDate.withDayOfMonth(1);
+        LocalDateTime startDate = currentDate.withDayOfMonth(1).withHour(0).withMinute(0).withSecond(0);
         LocalDateTime endDate = startDate.plusMonths(1);
         return getCrawlingData(startDate, endDate);
     }
