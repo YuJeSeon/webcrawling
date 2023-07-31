@@ -1,8 +1,7 @@
 package com.project.webcrawling.dto;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -14,4 +13,6 @@ public class ResponseDTO {
     private Integer type;
     private String title;
     private String url;
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+    private LocalDateTime created_at;
 }

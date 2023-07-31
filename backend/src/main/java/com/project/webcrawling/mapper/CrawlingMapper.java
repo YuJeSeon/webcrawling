@@ -7,5 +7,6 @@ import org.mapstruct.Mapping;
 
 @Mapper(componentModel = "spring")
 public interface CrawlingMapper {
+    @Mapping(target = "created_at", source = "created_at", dateFormat = "yyyy-MM-dd HH:mm:ss")
     ResponseDTO toResponseDTO(Crawling crawling);
 }
