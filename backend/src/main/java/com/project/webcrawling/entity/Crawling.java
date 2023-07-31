@@ -1,13 +1,9 @@
 package com.project.webcrawling.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -30,9 +26,5 @@ public class Crawling {
     private String url;
 
     @Column(nullable = false)
-    private LocalDate crawling_time;
-
-    @Column(nullable = false)
-    @CreationTimestamp
     private LocalDateTime created_at;
 }

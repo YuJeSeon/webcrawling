@@ -10,7 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.List;
 
 @RestController
@@ -29,7 +30,7 @@ public class WebController {
                 data = webService.getLatestCrawling();
                 break;
             case "daily":
-                LocalDate startDate = startDateStr != null ? LocalDate.parse(startDateStr) : LocalDate.now();
+                LocalDateTime startDate = startDateStr != null ? LocalDateTime.parse(startDateStr).with(LocalTime.MIN) : LocalDateTime.now().with(LocalTime.MIN);
                 data = webService.getDailyCrawling(startDate);
                 break;
             case "weekly":
