@@ -34,10 +34,6 @@ class DB:
             max_id = self.cursor.fetchone()[0] + 1
             sql_alter_auto_increment = f'ALTER TABLE crawling AUTO_INCREMENT = {max_id}'
             self.cursor.execute(sql_alter_auto_increment)
-            # 이미 있는 레코드를 찾아서 crawling_time만 업데이트
-            sql_update_time = 'UPDATE crawling SET crawling_time = %s WHERE url = %s'
-            self.cursor.execute(sql_update_time, (data[3], data[2]))
-            self.db.commit()
 
 class Cralwer:
 
@@ -63,7 +59,6 @@ class Cralwer:
             return url
     
 if __name__ == '__main__':
-    start_datetime = datetime.now().strftime('%Y-%m-%d %H:%M')
     crawler = Cralwer()
     db = DB()
 
@@ -76,8 +71,8 @@ if __name__ == '__main__':
             title = crawler.clean_title(article.text)
             detail_url = article.get('href')
             url = crawler.get_main_url(target[0]) + detail_url
-            article_list.append((index, title, url, start_datetime))
+            article_list.append((index, title, url))
 
         for article in article_list:
-            sql = 'INSERT INTO crawling (type, title, url, crawling_time) VALUES(%s, %s, %s, %s)'
+            sql = 'INSERT INTO crawling (type, title, url) VALUES(%s, %s, %s)'
             db.insert(sql, article)
