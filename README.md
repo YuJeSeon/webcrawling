@@ -112,7 +112,7 @@ $ java -jar webcrawling-0.0.1-SNAPSHOT.jar
 <img src="https://img.shields.io/badge/Let's%20Encrypt-003A70?style=for-the-badge&amp;logo=letsencrypt&amp;logoColor=white" alt="Let's Encrypt">
 <img src="https://img.shields.io/badge/nginx-269539?style=for-the-badge&amp;logo=nginx&amp;logoColor=white" alt="nginx">
 <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&amp;logo=git&amp;logoColor=white" alt="Git">
-<img src="https://img.shields.io/badge/EC2-FF8C00?style=for-the-badge&amp;logo=amazonaws&amp;logoColor=white" alt="EC2">
+<img src="https://img.shields.io/badge/Lightsail-FF8C00?style=for-the-badge&amp;logo=amazonaws&amp;logoColor=white" alt="Lightsail">
 <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&amp;logo=ubuntu&amp;logoColor=white" alt="Ubuntu"></p>
 
 <h2>주요 기능</h2>
